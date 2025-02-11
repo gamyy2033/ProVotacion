@@ -1,8 +1,10 @@
 import os
 from pathlib import Path
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< HEAD
 # Configuración de archivos estáticos para desarrollo y producción
 STATIC_URL = '/static/'
 
@@ -33,6 +35,20 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'tu_dominio.com']
 # Otras configuraciones (por ejemplo, contraseñas y validaciones de seguridad)
 SECRET_KEY = 'django-insecure-d-m-l4tj+)!z)0#eysno$ck^-%bl7%yld$hwgn^49rh!u+n(!9'
 DEBUG = True
+=======
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY', 'your_default_secret_key')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False  # Desactiva el modo debug
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'your-app-name.onrender.com']  # Agrega el dominio de tu aplicación en producción
+
+# Application definition
+>>>>>>> 90758a2dfc6e526e05c8008fb64216e84eac2893
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -71,6 +87,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Mesa.wsgi.application'
 
+<<<<<<< HEAD
+=======
+# Database
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))  # Utiliza dj-database-url para manejar la base de datos
+}
+
+# Password validation
+# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
+>>>>>>> 90758a2dfc6e526e05c8008fb64216e84eac2893
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -86,8 +115,57 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+<<<<<<< HEAD
+=======
+# Internationalization
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
+
+>>>>>>> 90758a2dfc6e526e05c8008fb64216e84eac2893
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+<<<<<<< HEAD
+=======
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+
+STATIC_URL = '/static/'
+
+# En producción, configura STATIC_ROOT
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# También puedes incluir más directorios estáticos si es necesario
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+MEDIA_URL = '/media/'  # URL base para acceder a los archivos de medios
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+>>>>>>> 90758a2dfc6e526e05c8008fb64216e84eac2893
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logs de errores
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'errors.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
