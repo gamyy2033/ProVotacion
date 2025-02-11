@@ -48,7 +48,12 @@ DEBUG = False  # Desactiva el modo debug
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'your-app-name.onrender.com']  # Agrega el dominio de tu aplicación en producción
 
 # Application definition
->>>>>>> 90758a2dfc6e526e05c8008fb64216e84eac2893
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'votaciones',
+    }
+}
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
