@@ -117,7 +117,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # Usualmente apunta a la carpeta "static" en la raíz del proyecto
+    'C:/aplicaciones-web/Apli/Mesa/ProVotacion/static',  # Esto es lo que muestra la advertencia
+]
 
 MEDIA_URL = '/media/'  # URL base para acceder a los archivos de medios
 MEDIA_ROOT = BASE_DIR / 'media'
